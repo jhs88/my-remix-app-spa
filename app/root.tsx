@@ -21,7 +21,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <MuiDocument>{children}</MuiDocument>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -30,13 +30,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return (
-    <MuiDocument>
-      <Outlet />
-    </MuiDocument>
-  );
+  return <Outlet />;
 }
 
 export function HydrateFallback() {
-  return <MuiDocument><p>Loading...</p></MuiDocument>;
+  return <p>Loading...</p>;
 }
