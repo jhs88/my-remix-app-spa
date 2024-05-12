@@ -1,32 +1,37 @@
+import { Box, Link, List, Typography } from "@mui/material";
 import type { MetaFunction } from "@remix-run/node";
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "New Remix SPA" },
-    { name: "description", content: "Welcome to Remix (SPA Mode)!" },
-  ];
-};
+export const meta: MetaFunction = () => [
+  { title: "New Remix SPA" },
+  { name: "description", content: "Welcome to Remix (SPA Mode)!" },
+];
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix (SPA Mode)</h1>
-      <ul>
+    <Box style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
+      <Typography variant="h2">Welcome to Remix (SPA Mode)</Typography>
+      <List>
         <li>
-          <a
+          <Link
+            variant="h5"
             target="_blank"
             href="https://remix.run/future/spa-mode"
             rel="noreferrer"
           >
             SPA Mode Guide
-          </a>
+          </Link>
         </li>
         <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
+          <Link
+            variant="h5"
+            target="_blank"
+            href="https://remix.run/docs"
+            rel="noreferrer"
+          >
             Remix Docs
-          </a>
+          </Link>
         </li>
-      </ul>
-    </div>
+      </List>
+    </Box>
   );
 }

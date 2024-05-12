@@ -45,7 +45,7 @@ function SkeleCard() {
 export function PopupLoader() {
   return (
     <Stack alignItems="center" justifyContent="center" mt="5em" mb="5em">
-      <Card variant="outlined">
+      <Card>
         <CardContent>
           <Box
             alignItems="center"
