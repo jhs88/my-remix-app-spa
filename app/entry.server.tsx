@@ -1,15 +1,18 @@
 import type { EntryContext } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import { renderToString } from "react-dom/server";
+import { MuiProvider } from "~/mui";
 
 export default function handleRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  remixContext: EntryContext
+  remixContext: EntryContext,
 ) {
   let html = renderToString(
-    <RemixServer context={remixContext} url={request.url} />
+    <MuiProvider>
+      <RemixServer context={remixContext} url={request.url} />
+    </MuiProvider>,
   );
   html = "<!DOCTYPE html>\n" + html;
   return new Response(html, {
@@ -17,3 +20,5 @@ export default function handleRequest(
     status: responseStatusCode,
   });
 }
+
+// need to add bot request handler
