@@ -2,6 +2,16 @@
 
 This template leverages [Remix SPA Mode](https://remix.run/docs/en/main/future/spa-mode) and the [Remix Vite Plugin](https://remix.run/docs/en/main/future/vite) to build your app as a Single-Page Application using [Client Data](https://remix.run/docs/en/main/guides/client-data) for all of your data loads and mutations.
 
+## SPA Mode Caveats
+
+SPA Mode only works when using Vite and the Remix Vite plugin
+
+You cannot use server APIs such as headers, loader, and action -- the build will throw an error if you export them
+
+You can only export a HydrateFallback from your root.tsx in SPA Mode -- the build will throw an error if you export one from any other routes.
+
+You cannot call serverLoader/serverAction from your clientLoader/clientAction methods since there is no running server -- those will throw a runtime error if called
+
 ## Setup
 
 ```shellscript

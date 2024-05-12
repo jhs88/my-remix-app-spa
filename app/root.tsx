@@ -6,7 +6,9 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import Content from "~/components/Content";
 import { getMuiLinks, MuiDocument, MuiMeta } from "~/mui";
+import { PopupLoader } from "./components/Loading";
 
 export const links: LinksFunction = () => [...getMuiLinks()];
 
@@ -21,7 +23,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <MuiDocument>{children}</MuiDocument>
+        <MuiDocument>
+          <Content>{children}</Content>
+        </MuiDocument>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -34,5 +38,5 @@ export default function App() {
 }
 
 export function HydrateFallback() {
-  return <p>Loading...</p>;
+  return <PopupLoader />;
 }
