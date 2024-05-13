@@ -1,9 +1,10 @@
 /* eslint-disable react/display-name */
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import { IconButton, Stack } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import Stack from "@mui/material/Stack";
 import usePagination from "@mui/material/usePagination";
-import React, { Children, useState } from "react";
+import React, { useState } from "react";
 
 type CarouselProps = {
   limit?: number;
@@ -22,7 +23,7 @@ type CarouselProps = {
  *   </Carousel>;
  */
 export default function Carousel({ limit = 1, children }: CarouselProps) {
-  const totalCount = Children.count(children) ?? 0;
+  const totalCount = React.Children.count(children) ?? 0;
   /** Page count */
   const count = parseInt(
     `${totalCount / limit + (totalCount % limit > 0 ? 1 : 0)}`,
@@ -81,7 +82,7 @@ export default function Carousel({ limit = 1, children }: CarouselProps) {
         spacing={{ xs: 2, md: 8 }}
       >
         {children &&
-          Children.toArray(children)
+          React.Children.toArray(children)
             .slice(pageStartIndex, pageStartIndex + limit)
             .map((child) => child)}
       </Stack>

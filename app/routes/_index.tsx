@@ -1,4 +1,7 @@
-import { Box, Link, List, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
+import List from "@mui/material/List";
+import Typography from "@mui/material/Typography";
 import type { MetaFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = () => [
