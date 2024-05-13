@@ -1,7 +1,7 @@
 import type { EntryContext } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import { renderToString } from "react-dom/server";
-import { MuiProvider } from "~/mui";
+import { MuiProvider } from "~/theme";
 
 export default function handleRequest(
   request: Request,

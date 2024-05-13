@@ -7,7 +7,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import Content from "~/components/Content";
-import { getMuiLinks, MuiDocument, MuiMeta } from "~/mui";
+import { getMuiLinks, MuiDocument, MuiMeta } from "~/theme";
 import { PopupLoader } from "./components/Loading";
 
 export const links: LinksFunction = () => [...getMuiLinks()];
