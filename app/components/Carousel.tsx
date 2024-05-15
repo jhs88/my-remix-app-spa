@@ -1,8 +1,7 @@
 /* eslint-disable react/display-name */
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import IconButton from "@mui/material/IconButton";
-import Stack from "@mui/material/Stack";
+import { IconButton, Stack } from "@mui/material";
 import usePagination from "@mui/material/usePagination";
 import React, { useState } from "react";
 

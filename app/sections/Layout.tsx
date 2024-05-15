@@ -1,6 +1,6 @@
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
-import SideBar from "~/sections/SideBar";
+import { Container, Grid } from "@mui/material";
+
+import SideBar from "./SideBar";
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (

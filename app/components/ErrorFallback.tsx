@@ -1,6 +1,4 @@
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
+import { Box, Stack, Typography } from "@mui/material";
 import { isRouteErrorResponse } from "@remix-run/react";
 
 import type { ErrorResponse } from "@remix-run/react";

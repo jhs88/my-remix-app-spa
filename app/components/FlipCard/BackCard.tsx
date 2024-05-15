@@ -1,6 +1,4 @@
-import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
+import { Grid, Stack, Typography } from "@mui/material";
 import React from "react";
 
 /** Renders the back card component. */

@@ -1,7 +1,4 @@
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
 
 /** Renders the front card component. */

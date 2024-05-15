@@ -1,6 +1,4 @@
-import Box from "@mui/material/Box";
-import MuiLink from "@mui/material/Link";
-import Typography from "@mui/material/Typography";
+import { Box, Link as MuiLink, Typography } from "@mui/material";
 import { Link } from "@remix-run/react";
 
 export default function SideBar() {

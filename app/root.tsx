@@ -1,16 +1,33 @@
-import type { LinksFunction } from "@remix-run/node";
+import type {
+  LinksFunction,
+  LoaderFunctionArgs,
+  SerializeFrom,
+} from "@remix-run/node";
 import {
+  json,
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
+  useMatches,
 } from "@remix-run/react";
 import { PopupLoader } from "~/components/Loading";
 import Content from "~/sections/Layout";
 import { getMuiLinks, MuiDocument, MuiMeta } from "~/theme";
 
 export const links: LinksFunction = () => [...getMuiLinks()];
+
+export const useRootLoaderData = () => {
+  const [root] = useMatches();
+  return root?.data as SerializeFrom<typeof clientLoader>;
+};
+
+export async function clientLoader({ request }: LoaderFunctionArgs) {
+  const url = new URL(request.url);
+  return json({ url });
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -23,9 +40,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <MuiDocument>
-          <Content>{children}</Content>
-        </MuiDocument>
+        {children}
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -34,9 +49,25 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  const data = useLoaderData<typeof clientLoader>();
+
+  return (
+    <MuiDocument>
+      <Content {...data}>
+        <Outlet />
+      </Content>
+    </MuiDocument>
+  );
 }
 
 export function HydrateFallback() {
-  return <PopupLoader />;
+  const data = useRootLoaderData();
+
+  return (
+    <MuiDocument>
+      <Content {...data}>
+        <PopupLoader />
+      </Content>
+    </MuiDocument>
+  );
 }
