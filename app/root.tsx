@@ -9,7 +9,7 @@ import {
   useMatches,
 } from "react-router";
 import { PopupLoader } from "~/components/Loading";
-import Content from "~/sections/layout";
+import Content from "~/sections/Layout";
 
 import { Route } from "../.react-router/types/app/+types/root";
 
