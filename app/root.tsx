@@ -1,10 +1,5 @@
-import type {
-  LinksFunction,
-  LoaderFunctionArgs,
-  SerializeFrom,
-} from "@remix-run/node";
+import type { LinksFunction } from "react-router";
 import {
-  json,
   Links,
   Meta,
   Outlet,
@@ -12,21 +7,24 @@ import {
   ScrollRestoration,
   useLoaderData,
   useMatches,
-} from "@remix-run/react";
+} from "react-router";
 import { PopupLoader } from "~/components/Loading";
-import Content from "~/sections/Layout";
-import { getMuiLinks, MuiDocument, MuiMeta } from "~/theme";
+import Content from "~/sections/layout";
 
-export const links: LinksFunction = () => [...getMuiLinks()];
+import { Route } from "../.react-router/types/app/+types/root";
+
+type SerializeFrom<T> = ReturnType<typeof useLoaderData<T>>;
+
+export const links: LinksFunction = () => [];
 
 export const useRootLoaderData = () => {
   const [root] = useMatches();
   return root?.data as SerializeFrom<typeof clientLoader>;
 };
 
-export async function clientLoader({ request }: LoaderFunctionArgs) {
+export async function clientLoader({ request }: Route.ClientLoaderArgs) {
   const url = new URL(request.url);
-  return json({ url });
+  return { url };
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -36,7 +34,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
-        <MuiMeta />
         <Links />
       </head>
       <body>
@@ -52,11 +49,9 @@ export default function App() {
   const data = useLoaderData<typeof clientLoader>();
 
   return (
-    <MuiDocument>
-      <Content {...data}>
-        <Outlet />
-      </Content>
-    </MuiDocument>
+    <Content {...data}>
+      <Outlet />
+    </Content>
   );
 }
 
@@ -64,10 +59,8 @@ export function HydrateFallback() {
   const data = useRootLoaderData();
 
   return (
-    <MuiDocument>
-      <Content {...data}>
-        <PopupLoader />
-      </Content>
-    </MuiDocument>
+    <Content {...data}>
+      <PopupLoader />
+    </Content>
   );
 }

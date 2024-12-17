@@ -1,5 +1,4 @@
-import { Box, Link, List, Typography } from "@mui/material";
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "react-router";
 
 export const meta: MetaFunction = () => [
   { title: "New Remix SPA" },
@@ -8,30 +7,24 @@ export const meta: MetaFunction = () => [
 
 export default function Index() {
   return (
-    <Box style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <Typography variant="h2">Welcome to Remix (SPA Mode)</Typography>
-      <List>
+    <div>
+      <h2>Welcome to Remix (SPA Mode)</h2>
+      <ul>
         <li>
-          <Link
-            variant="h5"
+          <a
             target="_blank"
             href="https://remix.run/future/spa-mode"
             rel="noreferrer"
           >
-            SPA Mode Guide
-          </Link>
+            <h5>SPA Mode Guide</h5>
+          </a>
         </li>
         <li>
-          <Link
-            variant="h5"
-            target="_blank"
-            href="https://remix.run/docs"
-            rel="noreferrer"
-          >
-            Remix Docs
-          </Link>
+          <a target="_blank" href="https://reactrouter.com" rel="noreferrer">
+            <h5>React Router Docs</h5>
+          </a>
         </li>
-      </List>
-    </Box>
+      </ul>
+    </div>
   );
 }

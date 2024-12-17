@@ -1,7 +1,5 @@
-import { Box, Stack, Typography } from "@mui/material";
-import { isRouteErrorResponse } from "@remix-run/react";
-
-import type { ErrorResponse } from "@remix-run/react";
+import type { ErrorResponse } from "react-router";
+import { isRouteErrorResponse } from "react-router";
 
 type ErrorFallbackProps = {
   error: ErrorResponse | Error | unknown;
@@ -9,19 +7,17 @@ type ErrorFallbackProps = {
 
 export default function ErrorFallback({ error }: ErrorFallbackProps) {
   return (
-    <Box className="error-page">
-      <Stack alignItems="center" justifyContent="center" spacing={2}>
-        <Typography variant="h1">
-          {isRouteErrorResponse(error) ? error.status : 500}
-        </Typography>
-        <Typography>
+    <div className="error-page">
+      <div>
+        <h1>{isRouteErrorResponse(error) ? error.status : 500}</h1>
+        <p>
           {isRouteErrorResponse(error)
-            ? error.data.message ?? error.data
+            ? (error.data.message ?? error.data)
             : error instanceof Error
               ? error.message
               : "An Unknown error ocurred"}
-        </Typography>
-      </Stack>
-    </Box>
+        </p>
+      </div>
+    </div>
   );
 }
