@@ -5,11 +5,14 @@
 
 version: 2
 updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
-      interval: "monthly"
-    groups:
-      dev-dependencies:
-        patterns: 
-          - "*"
+      interval: "weekly"
+    open-pull-requests-limit: 2
+    allow:
+      - dependency-type: "direct"

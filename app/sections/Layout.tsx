@@ -1,18 +1,16 @@
-import { Container, Grid } from "@mui/material";
-
-import SideBar from "./SideBar";
+import SideBar from "./side-bar";
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
-    <Container>
-      <Grid container spacing={4}>
-        <Grid item xs={12} md={4}>
+    <>
+      <div>
+        <div>
           <SideBar />
-        </Grid>
-        <Grid item justifyContent="center" alignItems="center" xs={12} md={8}>
+        </div>
+        <div style={{ justifyContent: "center", alignItems: "center" }}>
           {children}
-        </Grid>
-      </Grid>
-    </Container>
+        </div>
+      </div>
+    </>
   );
 }
