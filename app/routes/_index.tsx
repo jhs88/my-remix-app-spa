@@ -7,21 +7,27 @@ export const meta: MetaFunction = () => [
 
 export default function Index() {
   return (
-    <div>
-      <h2>Welcome to Remix (SPA Mode)</h2>
-      <ul>
+    <div className="p-4">
+      <h2 className="text-2xl font-bold">Welcome to Remix (SPA Mode)</h2>
+      <ul className="mt-4 space-y-2">
         <li>
           <a
             target="_blank"
             href="https://remix.run/future/spa-mode"
             rel="noreferrer"
+            className="text-blue-500 hover:underline"
           >
-            <h5>SPA Mode Guide</h5>
+            <h5 className="text-lg">SPA Mode Guide</h5>
           </a>
         </li>
         <li>
-          <a target="_blank" href="https://reactrouter.com" rel="noreferrer">
-            <h5>React Router Docs</h5>
+          <a
+            target="_blank"
+            href="https://reactrouter.com"
+            rel="noreferrer"
+            className="text-blue-500 hover:underline"
+          >
+            <h5 className="text-lg">React Router Docs</h5>
           </a>
         </li>
       </ul>

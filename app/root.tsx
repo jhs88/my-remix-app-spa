@@ -8,14 +8,16 @@ import {
   useLoaderData,
   useMatches,
 } from "react-router";
-import { PopupLoader } from "~/components/Loading";
-import Content from "~/sections/Layout";
+import { PopupLoader } from "~/components/loading";
+import Content from "~/sections/layout";
 
 import { Route } from "../.react-router/types/app/+types/root";
 
+import styles from "~/globals.css?url";
+
 type SerializeFrom<T> = ReturnType<typeof useLoaderData<T>>;
 
-export const links: LinksFunction = () => [];
+export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
 export const useRootLoaderData = () => {
   const [root] = useMatches();
