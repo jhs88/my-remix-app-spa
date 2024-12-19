@@ -13,7 +13,7 @@ import Content from "~/sections/layout";
 
 import { Route } from "../.react-router/types/app/+types/root";
 
-import styles from "~/globals.css?url";
+import styles from "~/tailwind.css?url";
 
 type SerializeFrom<T> = ReturnType<typeof useLoaderData<T>>;
 
