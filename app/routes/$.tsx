@@ -1,4 +1,4 @@
-import { ClientLoaderFunctionArgs, useRouteError } from "react-router";
+import { type ClientLoaderFunctionArgs, useRouteError } from "react-router";
 import ErrorFallback from "~/components/ErrorFallback";
 
 export async function clientLoader({ request }: ClientLoaderFunctionArgs) {

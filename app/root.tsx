@@ -11,7 +11,7 @@ import {
 import { PopupLoader } from "~/components/loading";
 import Content from "~/sections/layout";
 
-import { Route } from "../.react-router/types/app/+types/root";
+import type { Route } from "./+types/root"; 
 
 import styles from "~/tailwind.css?url";
 
